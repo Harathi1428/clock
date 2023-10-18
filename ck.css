@@ -1,0 +1,106 @@
+body{
+  
+    background-color: rgb(204 230 238);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.clock{
+    margin-top: 100px;
+    position: relative;
+    width:300px;
+    height:300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+    border-radius: 50px;
+    box-shadow: 15px 15px 15px -10px rgb(0,0,0,0.15),inset 15px 15px 10px hwb(0 100% 0%),-15px -15px 35px hwb(0 100% 0%),inset -1px -1px 10px rgb(15, 15, 85);
+}
+.clock .nums{
+    position:absolute;
+    background-color: rgb(31, 31, 90);
+    inset:35px;
+    border-radius: 50%;
+    box-shadow:5px 5px 5px 15px white,inset 5px 5px 5px rgb(255,255,255,0.55),-1px -1px 10px rgb(255,255,255,1);
+}
+.clock .nums span{
+    position: absolute;
+    inset:5px;
+    text-align: center;
+    color: aliceblue;
+    font-size: 20px;
+    transform: rotate(calc(90deg * var(--i)));
+}
+.clock .nums span b {
+    display: inline-block;
+transform: rotate(calc(-90deg * var(--i)));
+}
+.clock .nums::before{
+    content: '';
+    position: absolute;
+    inset:35px;
+    background: linear-gradient(rgb(45, 45, 202),rgb(218, 62, 62));
+    border-radius: 50%;
+    animation: animate 2s linear infinite;
+}
+@keyframes animate{
+    0%{
+        transform: rotate(360deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+.clock .nums::after{
+    content: '';
+    position: absolute;
+    inset:38px;
+    background-color: rgb(31, 31, 90);
+    border-radius: 50%;
+}
+.clock .nums .circle{
+    position: absolute;
+    inset:0px;
+    border-radius: 50%;
+    display:flex;
+    justify-content: center;
+    z-index: 10;
+
+}
+.clock .nums .circle i{
+    position:absolute;
+    width:3px;
+    height: 50%;
+    background: whitesmoke;
+    transform-origin: bottom;
+}
+.clock .nums .circle#hr i{
+    width:4px;
+    transform: scaley(0.3);
+}
+.clock .nums .circle#min i{
+    transform: scaley(0.45);
+}
+.clock .nums .circle#sec i{
+    width:2px;
+    background: rgb(200, 52, 76);
+    box-shadow: 0 20px 0 rgb(200,52,76);
+    transform: scaley(0.55);
+}
+.clock::before{
+content:'';
+position: absolute;
+width:8px;
+height:8px;
+background:linear-gradient(rgb(177, 35, 35),rgb(188, 60, 81));
+border-radius: 50%;
+box-shadow: 0 0 1px rgb(197, 57, 80);
+z-index:1000;
+}
+.dig{
+position:absolute;
+width:150px;
+height:30px;
+background-color: rgb(187, 209, 202);
+}
